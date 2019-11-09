@@ -146,6 +146,7 @@ resource "aws_launch_configuration" "main" {
 #!/bin/bash
 # The cluster this agent should check into.
 echo 'ECS_CLUSTER=${aws_ecs_cluster.main.name}' >> /etc/ecs/ecs.config
+sudo yum install -y amazon-ssm-agent
 
 # Disable privileged containers.
 echo 'ECS_DISABLE_PRIVILEGED=true' >> /etc/ecs/ecs.config
