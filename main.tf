@@ -124,7 +124,7 @@ resource "aws_security_group_rule" "main" {
 
 resource "aws_launch_configuration" "main" {
   name_prefix = "${format("ecs-%s-", local.cluster_name)}"
-
+  key_name = var.key_name == "" ? null : var.key_name
   iam_instance_profile = "${aws_iam_instance_profile.ecs_instance_profile.name}"
 
   instance_type               = "${var.instance_type}"

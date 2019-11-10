@@ -13,6 +13,7 @@ output "ecs_instance_role" {
   value       = "${aws_iam_role.ecs_instance_role.name}"
 }
 
+
 output "security_group" {
   description = "The security group of the instances with ecs"
   value = aws_security_group.main.id
